@@ -1,0 +1,37 @@
+{% load static %}
+<html>
+<head>
+<title>Deep Learning Anomaly Detection</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>A Unified Deep Learning Anomaly Detection and Classification Approach for Smart Grid Environments</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+          
+            <ul>
+      
+      <li><a href="{% url 'ProcessData' %}">Load & Preprocess Dataset</a></li>
+	  <li><a href="{% url 'TrainPropose' %}">Run Encoder-GAN MENSA Model</a></li>
+	  <li><a href="{% url 'TrainCNN' %}">Run CNN</a></li>
+	  <li><a href="{% url 'TrainLSTM' %}">Run LSTM</a></li>
+	   <li><a href="{% url 'Predict' %}">Detection & Classification</a></li>
+      <li><a href="{% url 'index' %}">Logout</a></li>
+   </ul>
+        
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="915" height="286" alt="" /></div>
+
+		<font size="3" color="red"><center>{{ data|safe }}</center></font>
+
+       
+  </body>
+</html>

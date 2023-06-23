@@ -1,0 +1,68 @@
+{% load static %}
+<html>
+<head>
+<title>Deep Learning Anomaly Detection</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter Username");
+	formObj.t1.focus();
+	return false;
+	}
+	if(formObj.t2.value.length==0)
+	{
+	alert("Please Enter Password");
+	formObj.t2.focus();
+	return false;
+	}
+	formObj.actionUpdateData.value="update";
+	return true;
+	}
+	</script>
+	 <script language="javascript" type="text/javascript" src="datetimepicker.js">
+</script>
+</head>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>A Unified Deep Learning Anomaly Detection and Classification Approach for Smart Grid Environments</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+         <ul>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'UserLogin' %}">User Login</a></li>
+	 <li><a href="{% url 'Signup' %}">New User Signup Here</a></li>
+   </ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="915" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'UserLoginAction' %} onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>User Login Screen</b></h2>
+   
+	<font size="" color="red"><center>{{ data }}</center></font>
+						
+						<table align="center" width="30%" >
+			 <tr><td><font size='' color=black>Username</b></td>
+			 <td><input type="text" name="t1" style="font-family: Comic Sans MS" size="30"></td></tr>
+         
+		  <tr><td><font size='' color=black>Password</b></td><td><input name="t2" type="password" size="30"></td></tr>
+
+			<tr><td></td><td><input type="submit" value="Login"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+					
+	</body>
+</html>

@@ -1,0 +1,112 @@
+{% load static %}
+<html>
+<head>
+<title>Deep Learning Anomaly Detection</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter username");
+	formObj.t1.focus();
+	return false;
+	}
+	if(formObj.t2.value.length==0)
+	{
+	alert("Please Enter password");
+	formObj.t2.focus();
+	return false;
+	}
+	
+	if(formObj.t3.value.length==0)
+	{
+	alert("Please Enter Contact No");
+	formObj.t3.focus();
+	return false;
+	}
+	if(isNaN(formObj.t3.value)){
+		alert("Contact No must be numeric");
+		formObj.t3.focus();
+		return false;
+	}
+	if(formObj.t5.value.length==0)
+	{
+	alert("Please Enter Email Id");
+	formObj.t5.focus();
+	return false;
+	}
+	var filter = /^([a-zA-Z0-9_\.\-])+\@([a-z]+\.)+(com)+$/;
+    if (!filter.test(formObj.t5.value)) {
+		window.alert('Please enter valid email address');
+		formObj.t5.focus();
+		return false;
+	}
+	if(formObj.t6.value.length==0)
+	{
+	alert("Please Enter Address");
+	formObj.t6.focus();
+	return false;
+	}
+	return true;
+	}
+	</script>
+	 <script language="javascript" type="text/javascript" src="datetimepicker.js">
+</script>
+</head>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>A Unified Deep Learning Anomaly Detection and Classification Approach for Smart Grid Environments</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+       <ul>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'UserLogin' %}">User Login</a></li>
+	 <li><a href="{% url 'Signup' %}">New User Signup Here</a></li>
+   </ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="915" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'SignupAction' %} onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>New User Signup Screen</b></h2>
+   
+	<font size="" color="red"><center>{{ data|safe }}</center></font>
+						
+						<table align="center" width="30%" >
+			 <tr><td><font size='' color=black>Username</b></td>
+			 <td><input type="text" name="t1" style="font-family: Comic Sans MS" size="30"></td></tr>
+         
+		  <tr><td><font size='' color=black>Password</b></td><td><input name="t2" type="password" size="30"></td></tr>
+
+			<tr><td><font size='' color=black>Contact&nbsp;No</b></td>
+			<td><input name="t3" type="Text" size="15"></td></td></tr>
+
+		    <tr><td><font size='' color=black>Gender</b></td><td><select name="t4" style="font-family: Comic Sans MS">
+		   <option value="Male">Male</option>
+		   <option value="Female">Female</option>
+		   </select>
+		   </td></tr>
+
+		   <tr><td><font size='' color=black>Email&nbsp;ID</b></td><td><input type="text" name="t5" style="font-family: Comic Sans MS" size=50/></td></tr>
+
+          <tr><td><font size='' color=black>Address</b></td><td><input name="t6" type="Text" size="70"></td></td></tr>
+
+		  
+
+			<tr><td></td><td><input type="submit" value="Submit"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+					
+	</body>
+</html>
